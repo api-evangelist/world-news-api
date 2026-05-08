@@ -26,6 +26,8 @@ apis:
     properties:
       - type: Documentation
         url: ' https://worldnewsapi.com/'
+      - type: OpenAPI
+        url: openapi/world-news-api-openapi.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
