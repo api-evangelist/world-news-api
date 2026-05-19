@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: World News API — Geo
+  description: 'World News API — Geo. 1 operations. Lead operation: Get Geo Coordinates. Self-contained Naftiko capability
+    covering one World News Api business surface.'
+  tags:
+  - World News Api
+  - Geo
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WORLD_NEWS_API_API_KEY: WORLD_NEWS_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: world-news-geo
+    baseUri: https://api.worldnewsapi.com
+    description: World News API — Geo business capability. Self-contained, no shared references.
+    resources:
+    - name: retrieve-geo-coordinates
+      path: /retrieve-geo-coordinates
+      operations:
+      - name: get
+        method: GET
+        description: Get Geo Coordinates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: api-key
+      value: '{{env.WORLD_NEWS_API_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: world-news-geo-rest
+    port: 8080
+    description: REST adapter for World News API — Geo. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/retrieve-geo-coordinates
+      name: retrieve-geo-coordinates
+      description: REST surface for retrieve-geo-coordinates.
+      operations:
+      - method: GET
+        name: get
+        description: Get Geo Coordinates
+        call: world-news-geo.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: world-news-geo-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for World News API — Geo. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-geo-coordinates
+      description: Get Geo Coordinates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: world-news-geo.get
+      outputParameters:
+      - type: object
+        mapping: $.

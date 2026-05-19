@@ -1,0 +1,232 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: World News API — News
+  description: 'World News API — News. 6 operations. Lead operation: Extract News. Self-contained Naftiko capability covering
+    one World News Api business surface.'
+  tags:
+  - World News Api
+  - News
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WORLD_NEWS_API_API_KEY: WORLD_NEWS_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: world-news-news
+    baseUri: https://api.worldnewsapi.com
+    description: World News API — News business capability. Self-contained, no shared references.
+    resources:
+    - name: extract-news
+      path: /extract-news
+      operations:
+      - name: get
+        method: GET
+        description: Extract News
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: extract-news-links
+      path: /extract-news-links
+      operations:
+      - name: get
+        method: GET
+        description: Extract News Links
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: retrieve-front-page
+      path: /retrieve-front-page
+      operations:
+      - name: get
+        method: GET
+        description: Newspaper Front Pages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: retrieve-news
+      path: /retrieve-news
+      operations:
+      - name: get
+        method: GET
+        description: Retrieve News
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search-news
+      path: /search-news
+      operations:
+      - name: get
+        method: GET
+        description: Search News
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: top-news
+      path: /top-news
+      operations:
+      - name: get
+        method: GET
+        description: Top News
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: api-key
+      value: '{{env.WORLD_NEWS_API_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: world-news-news-rest
+    port: 8080
+    description: REST adapter for World News API — News. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/extract-news
+      name: extract-news
+      description: REST surface for extract-news.
+      operations:
+      - method: GET
+        name: get
+        description: Extract News
+        call: world-news-news.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/extract-news-links
+      name: extract-news-links
+      description: REST surface for extract-news-links.
+      operations:
+      - method: GET
+        name: get
+        description: Extract News Links
+        call: world-news-news.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/retrieve-front-page
+      name: retrieve-front-page
+      description: REST surface for retrieve-front-page.
+      operations:
+      - method: GET
+        name: get
+        description: Newspaper Front Pages
+        call: world-news-news.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/retrieve-news
+      name: retrieve-news
+      description: REST surface for retrieve-news.
+      operations:
+      - method: GET
+        name: get
+        description: Retrieve News
+        call: world-news-news.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search-news
+      name: search-news
+      description: REST surface for search-news.
+      operations:
+      - method: GET
+        name: get
+        description: Search News
+        call: world-news-news.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/top-news
+      name: top-news
+      description: REST surface for top-news.
+      operations:
+      - method: GET
+        name: get
+        description: Top News
+        call: world-news-news.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: world-news-news-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for World News API — News. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: extract-news
+      description: Extract News
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: world-news-news.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: extract-news-links
+      description: Extract News Links
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: world-news-news.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: newspaper-front-pages
+      description: Newspaper Front Pages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: world-news-news.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-news
+      description: Retrieve News
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: world-news-news.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-news
+      description: Search News
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: world-news-news.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: top-news
+      description: Top News
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: world-news-news.get
+      outputParameters:
+      - type: object
+        mapping: $.
