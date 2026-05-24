@@ -11,6 +11,9 @@ created: '2025-02-09'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/world-news-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
+common:
+- type: LLMsTxt
+  url: https://worldnewsapi.com/llms.txt
 apis:
 - aid: world-news-api:world-news-api
   name: World News API
