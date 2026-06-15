@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "World News API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/search-news"
+          },
+          "docs": "Search and filter news by text, date, location, category, language, and more."
+        },
+        {
+          "info": {
+            "name": "Top News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/top-news"
+          },
+          "docs": "Retrieve top news for a given source country and language."
+        },
+        {
+          "info": {
+            "name": "Retrieve News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/retrieve-news"
+          },
+          "docs": "Retrieve news article(s) by id."
+        },
+        {
+          "info": {
+            "name": "Newspaper Front Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/retrieve-front-page"
+          },
+          "docs": "Retrieve newspaper front page images and metadata."
+        },
+        {
+          "info": {
+            "name": "Extract News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/extract-news"
+          },
+          "docs": "Extract a news article from a webpage URL."
+        },
+        {
+          "info": {
+            "name": "Extract News Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/extract-news-links"
+          },
+          "docs": "Extract news article links from a website."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search News Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/search-news-sources"
+          },
+          "docs": "Search news sources / publishers."
+        },
+        {
+          "info": {
+            "name": "Suggest News Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.worldnewsapi.com/suggest-news-source"
+          },
+          "docs": "Suggest a new news source for inclusion in the index."
+        },
+        {
+          "info": {
+            "name": "Website to RSS Feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/feed.rss"
+          },
+          "docs": "Convert any website to an RSS feed."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Geo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Geo Coordinates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/retrieve-geo-coordinates"
+          },
+          "docs": "Retrieve geographic coordinates for a location string."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

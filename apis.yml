@@ -1,7 +1,8 @@
 aid: world-news-api
 name: World News API
-description: The World News API gives you access to thousands of news sources in over 90 languages from over 228 countries.
-  News are semantically tagged allowing for semantic news search like never before.
+description: >-
+  The World News API gives you access to thousands of news sources in over 90 languages from over 228 countries. News
+  are semantically tagged allowing for semantic news search like never before.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -12,27 +13,21 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/world-news-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 common:
-- type: LLMsTxt
-  url: https://worldnewsapi.com/llms.txt
+  - type: LLMsTxt
+    url: https://worldnewsapi.com/llms.txt
 apis:
-- aid: world-news-api:world-news-api
-  name: World News API
-  description: The World News API gives you access to thousands of news sources in over 90 languages from over 228 countries.
-    News are semantically tagged allowing for semantic news search like never before.
-  humanURL: ' https://worldnewsapi.com/'
-  tags: []
-  properties:
-  - type: Documentation
-    url: ' https://worldnewsapi.com/'
-  - type: OpenAPI
-    url: openapi/world-news-api-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/world-news-geo.yaml
-  - type: NaftikoCapability
-    url: capabilities/world-news-news.yaml
-  - type: NaftikoCapability
-    url: capabilities/world-news-sources.yaml
+  - aid: world-news-api:world-news-api
+    name: World News API
+    description: >-
+      The World News API gives you access to thousands of news sources in over 90 languages from over 228 countries.
+      News are semantically tagged allowing for semantic news search like never before.
+    humanURL: ' https://worldnewsapi.com/'
+    tags: []
+    properties:
+      - type: Documentation
+        url: ' https://worldnewsapi.com/'
+      - type: OpenAPI
+        url: openapi/world-news-api-openapi.yml
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-common: []
+  - FN: Kin Lane
+    email: kin@apievangelist.com
