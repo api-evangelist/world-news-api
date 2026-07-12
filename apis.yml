@@ -13,6 +13,10 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/world-news-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 common:
+  - type: DomainSecurity
+    url: security/world-news-api-domain-security.yml
+  - type: Authentication
+    url: authentication/world-news-api-authentication.yml
   - type: LlmsText
     url: https://worldnewsapi.com/llms.txt
 apis:
