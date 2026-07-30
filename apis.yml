@@ -4,9 +4,22 @@ description: >-
   The World News API gives you access to thousands of news sources in over 90 languages from over 228 countries. News
   are semantically tagged allowing for semantic news search like never before.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/world-news-api.png
 tags: []
 created: '2025-02-09'
 modified: '2026-05-19'
@@ -22,18 +35,39 @@ common:
   - type: LlmsText
     url: https://worldnewsapi.com/llms.txt
 apis:
-  - aid: world-news-api:world-news-api
-    name: World News API
-    description: >-
-      The World News API gives you access to thousands of news sources in over 90 languages from over 228 countries.
-      News are semantically tagged allowing for semantic news search like never before.
-    humanURL: ' https://worldnewsapi.com/'
-    tags: []
-    properties:
-      - type: Documentation
-        url: ' https://worldnewsapi.com/'
-      - type: OpenAPI
-        url: openapi/world-news-api-openapi.yml
+- aid: world-news-api:world-news-api-geo-api
+  name: World News API Geo API
+  description: The Geo API from World News API — 1 operation(s) for geo.
+  humanURL: ' https://worldnewsapi.com/'
+  tags:
+  - Geo
+  properties:
+  - type: OpenAPI
+    url: openapi/world-news-api-geo-api-openapi.yml
+  - type: Documentation
+    url: ' https://worldnewsapi.com/'
+- aid: world-news-api:world-news-api-news-api
+  name: World News API News API
+  description: The News API from World News API — 6 operation(s) for news.
+  humanURL: ' https://worldnewsapi.com/'
+  tags:
+  - News
+  properties:
+  - type: OpenAPI
+    url: openapi/world-news-api-news-api-openapi.yml
+  - type: Documentation
+    url: ' https://worldnewsapi.com/'
+- aid: world-news-api:world-news-api-sources-api
+  name: World News API Sources API
+  description: The Sources API from World News API — 3 operation(s) for sources.
+  humanURL: ' https://worldnewsapi.com/'
+  tags:
+  - Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/world-news-api-sources-api-openapi.yml
+  - type: Documentation
+    url: ' https://worldnewsapi.com/'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
