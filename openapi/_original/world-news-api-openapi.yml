@@ -1,0 +1,150 @@
+openapi: 3.1.0
+info:
+  title: World News API
+  description: |
+    The World News API provides access to thousands of news sources in over
+    90 languages from 228+ countries with semantic tagging. This minimal
+    OpenAPI definition documents the public REST endpoints listed in the
+    World News API documentation.
+  version: "1.0"
+  contact:
+    name: World News API
+    url: https://worldnewsapi.com/docs/
+servers:
+  - url: https://api.worldnewsapi.com
+    description: World News API base URL
+x-generated-from: https://worldnewsapi.com/docs/
+x-generated-by: claude-crawl-2026-05-08
+tags:
+  - name: News
+  - name: Sources
+  - name: Geo
+paths:
+  /search-news:
+    get:
+      tags: [News]
+      summary: Search News
+      description: Search and filter news by text, date, location, category, language, and more.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /top-news:
+    get:
+      tags: [News]
+      summary: Top News
+      description: Retrieve top news for a given source country and language.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /retrieve-news:
+    get:
+      tags: [News]
+      summary: Retrieve News
+      description: Retrieve news article(s) by id.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /retrieve-front-page:
+    get:
+      tags: [News]
+      summary: Newspaper Front Pages
+      description: Retrieve newspaper front page images and metadata.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /extract-news:
+    get:
+      tags: [News]
+      summary: Extract News
+      description: Extract a news article from a webpage URL.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /extract-news-links:
+    get:
+      tags: [News]
+      summary: Extract News Links
+      description: Extract news article links from a website.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /search-news-sources:
+    get:
+      tags: [Sources]
+      summary: Search News Sources
+      description: Search news sources / publishers.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /suggest-news-source:
+    post:
+      tags: [Sources]
+      summary: Suggest News Source
+      description: Suggest a new news source for inclusion in the index.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /feed.rss:
+    get:
+      tags: [Sources]
+      summary: Website to RSS Feed
+      description: Convert any website to an RSS feed.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/rss+xml:
+              schema:
+                type: string
+  /retrieve-geo-coordinates:
+    get:
+      tags: [Geo]
+      summary: Get Geo Coordinates
+      description: Retrieve geographic coordinates for a location string.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: api-key
+security:
+  - apiKeyAuth: []

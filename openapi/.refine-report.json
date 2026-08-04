@@ -1,0 +1,18 @@
+{
+  "provider": "world-news-api",
+  "sources": [
+    "world-news-api-geo-api-openapi.yml",
+    "world-news-api-news-api-openapi.yml",
+    "world-news-api-sources-api-openapi.yml"
+  ],
+  "outputs": [
+    "world-news-api-geo-api-openapi.yml",
+    "world-news-api-news-api-openapi.yml",
+    "world-news-api-sources-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
