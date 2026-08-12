@@ -44,8 +44,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/world-news-api-geo-api-openapi.yml
-  - type: Documentation
-    url: ' https://worldnewsapi.com/'
 - aid: world-news-api:world-news-api-news-api
   name: World News API News API
   description: The News API from World News API — 6 operation(s) for news.
@@ -55,8 +53,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/world-news-api-news-api-openapi.yml
-  - type: Documentation
-    url: ' https://worldnewsapi.com/'
 - aid: world-news-api:world-news-api-sources-api
   name: World News API Sources API
   description: The Sources API from World News API — 3 operation(s) for sources.
@@ -66,8 +62,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/world-news-api-sources-api-openapi.yml
-  - type: Documentation
-    url: ' https://worldnewsapi.com/'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
