@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "World News Geo Sources API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search News Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/search-news-sources"
+          },
+          "docs": "Search news sources / publishers."
+        },
+        {
+          "info": {
+            "name": "Suggest News Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.worldnewsapi.com/suggest-news-source"
+          },
+          "docs": "Suggest a new news source for inclusion in the index."
+        },
+        {
+          "info": {
+            "name": "Website to RSS Feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.worldnewsapi.com/feed.rss"
+          },
+          "docs": "Convert any website to an RSS feed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
